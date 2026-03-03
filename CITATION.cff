@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+title: "Do Image Captioning Models Fail Like Humans? A Cognitive Analysis of Perceptual Errors in Vision–Language Systems"
+message: "If you use this work, please cite it as below."
+type: dataset
+authors:
+  - family-names: Singh
+    given-names: Abhidhey
+    affiliation: JK Lakshmipat University, Jaipur
+  - family-names: Mishra
+    given-names: Sneha
+    affiliation: JK Lakshmipat University, Jaipur
+  - family-names: Rathore
+    given-names: Shivani
+    affiliation: JK Lakshmipat University, Jaipur
+year: 2026
+license: MIT
+repository-code: "https://github.com/yaya-99/Do-Image-Captioning-Models-Fail-Like-Humans-"
+abstract: >
+  This repository accompanies a cognitive computing minor project
+  investigating structured perceptual errors in pretrained image captioning
+  models. The study examines whether model error categories resemble human
+  cognitive error structures and analyzes token-level attention alignment
+  against human saliency maps.
+keywords:
+  - cognitive computing
+  - image captioning
+  - perceptual errors
+  - hallucination
+  - attention alignment
+  - vision-language models

@@ -1,0 +1,63 @@
+# ---------------------------
+# Python
+# ---------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.env/
+.venv/
+venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# ---------------------------
+# Model Weights & Binaries
+# ---------------------------
+*.pt
+*.pth
+*.bin
+*.ckpt
+
+# ---------------------------
+# Large Numpy / Torch Arrays
+# ---------------------------
+*.npy
+*.npz
+
+# ---------------------------
+# Dataset Files (RAW ONLY)
+# ---------------------------
+data/raw/*
+!data/raw/*.md
+
+# Prevent accidental upload of image datasets
+*.jpg
+*.jpeg
+*.png
+*.bmp
+*.tiff
+
+# But allow result figures
+!results/figures/*.png
+
+# ---------------------------
+# SALICON / COCO specific
+# ---------------------------
+*.mat
+*.h5
+*.zip
+
+# ---------------------------
+# System Files
+# ---------------------------
+.DS_Store
+Thumbs.db
+
+# ---------------------------
+# VS Code
+# ---------------------------
+.vscode/

@@ -91,6 +91,28 @@ This study follows a five-stage empirical pipeline:
 
 All analysis is post-hoc and does not involve model modification.
 
+## Experimental Pipeline
+
+The empirical analysis follows the pipeline below:
+
+```mermaid
+graph TD
+
+A[COCO Images] --> B[Caption Generation<br>BLIP / ViT-GPT2]
+
+B --> C[Manual Error Annotation]
+
+C --> D[Cross-Attention Extraction]
+
+D --> E[Alignment with Human Saliency Maps]
+
+E --> F[Token-Level Divergence<br>JS / KL]
+
+F --> G[Statistical Testing]
+
+G --> H[Cognitive Interpretation<br>Human-like vs Non-human-like Errors]
+```
+
 ---
 
 ## Current Empirical State
@@ -161,13 +183,13 @@ This separation ensures clarity between empirical evidence, analysis, and interp
 - Statistical testing  
 - Theory integration  
 
-### Sneha
+### Sneha Mishra
 - Error taxonomy construction  
 - Manual annotation  
 - Human comparison design  
 - Category refinement  
 
-### Shivani
+### Shivani Rathore
 - Cross-attention extraction  
 - Saliency preprocessing  
 - Spatial alignment implementation  

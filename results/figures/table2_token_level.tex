@@ -1,0 +1,23 @@
+
+\begin{table}[!t]
+\renewcommand{\arraystretch}{1.2}
+\caption{Token-Level Paired Analysis: Error Tokens vs.\ Non-Error Tokens (BLIP)}
+\label{tab:token_level}
+\centering
+\begin{tabular}{lc}
+\hline
+\textbf{Metric} & \textbf{Value} \\
+\hline
+Error captions analyzed ($n$) & 64 \\
+Mean JS @ error token & 0.413 \\
+Mean JS @ other tokens & 0.428 \\
+Mean difference & -0.015 \\
+95\% CI & [-0.018, -0.013] \\
+Paired $t$-statistic & -14.37 \\
+\textbf{p-value} & \textbf{0.000}$^{*}$ \\
+Cohen's $d$ & -1.80 (medium-to-large) \\
+\hline
+\end{tabular}
+\\
+\small $^{*}$ $p < 0.05$. Negative $d$: error tokens show \emph{lower} divergence.
+\end{table}

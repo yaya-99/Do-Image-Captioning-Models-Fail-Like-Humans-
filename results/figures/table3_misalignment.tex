@@ -1,0 +1,18 @@
+
+\begin{table}[!t]
+\renewcommand{\arraystretch}{1.2}
+\caption{BLEU-4 vs.\ Human Judgement Misalignment (threshold = 0.20)}
+\label{tab:misalignment}
+\centering
+\begin{tabular}{lcccc}
+\hline
+\textbf{Model} & \textbf{N} & \textbf{False High} & \textbf{False Low} & \textbf{Total} \\
+\hline
+BLIP & 200 & 14.5\% & 32.5\% & 47.0\% \\
+BLIP-2 & 200 & 17.5\% & 26.5\% & 44.0\% \\
+ViT-GPT2 & 200 & 21.0\% & 30.5\% & 51.5\% \\
+\hline
+\end{tabular}
+\\
+\small FH: metric=correct, human=fail. FL: metric=fail, human=correct.
+\end{table}

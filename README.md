@@ -1,266 +1,168 @@
-# Do Image Captioning Models Fail Like Humans?  
+# Do Image Captioning Models Fail Like Humans?
+
 ### A Cognitive Analysis of Perceptual Errors in Vision–Language Systems
 
 ---
 
-## Overview
+## 📌 Overview
 
-This repository presents an empirical cognitive study of perceptual error structure in pretrained image captioning models.
+This repository presents a **cognitive analysis of perceptual errors** in pretrained image captioning models.
 
-Rather than optimizing model performance or introducing architectural modifications, this project investigates whether structured perceptual failure in vision–language systems resembles human cognitive error patterns.
+Instead of improving accuracy, this project investigates:
 
-The central question of this project is not:
+> **When models fail, do they fail in a human-like way?**
 
-> “How accurate is the model?”
-
-but rather:
-
-> “When the model is wrong, is it wrong in a human-like way?”
-
-This is a structured empirical research project focused on cognitive analysis, not a benchmark, leaderboard, or model development repository.
+We analyze **error structure, hallucination behavior, and attention alignment** to understand whether model failures resemble human perceptual reasoning.
 
 ---
 
-## Core Philosophy
+## 🎯 Key Contributions
 
-This project explicitly avoids:
+* **CSS Metric (Cognitive Similarity Score)**
+  A structured metric for evaluating semantic misalignment beyond BLEU.
 
-- Improving model accuracy  
-- Training new architectures  
-- Optimizing captioning performance  
-- Competing on benchmarks  
+* **Human-Aligned Error Taxonomy**
+  Manual annotation of perceptual errors:
 
-Instead, it focuses on:
+  * Hallucination
+  * Misidentification
+  * Attribute mismatch
+  * Relation mismatch
 
-- Studying structured perceptual failure  
-- Comparing AI error structure to human cognitive error categories  
-- Using attention analysis as explanatory evidence  
-- Maintaining strict separation between spatial alignment and semantic grounding  
+* **Attention-Based Analysis**
+  Cross-attention maps aligned with human saliency (SALICON).
 
----
-
-## Research Questions
-
-### RQ1 — Error Taxonomy & Structure  
-Do pretrained captioning models exhibit structured perceptual error patterns that overlap with cognitively defined human error categories, or are they qualitatively distinct?
-
-### RQ2 — Hallucination & Prior Bias  
-Are hallucination errors driven by contextual language priors rather than perceptual evidence, and how does this compare to human prior-driven inference?
-
-### RQ3 — Attention & Misalignment  
-Is attention misalignment systematically associated with specific perceptual error categories?
+* **Cross-Model Evaluation**
+  Comparison across BLIP and ViT-GPT2 captioning models.
 
 ---
 
-## Dataset
+## ❓ Research Questions
 
-- 50 images from COCO val2014  
-- Paired with SALICON human saliency maps  
-- Manual perceptual error annotations  
-
-To ensure compliance with dataset licensing:
-
-- No COCO images are redistributed in this repository  
-- No SALICON fixation files are redistributed  
-- Only image IDs and derived measurements are included  
-
-See `data/raw/download_instructions.md` for acquisition details.
+* **RQ1:** Do models exhibit structured error patterns similar to human cognition?
+* **RQ2:** Are hallucinations driven by language priors?
+* **RQ3:** Is attention misalignment correlated with perceptual errors?
 
 ---
 
-## Model
-
-- Pretrained BLIP captioning model  
-- Cross-attention extracted at token-level  
-- Attention aligned to 24×24 spatial grid  
-- Jensen–Shannon (JS) and KL divergence computed against normalized human saliency  
-
-No model training or fine-tuning is performed.
-
----
-
-## Methodological Summary
-
-This study follows a five-stage empirical pipeline:
-
-1. Caption generation using a pretrained BLIP model  
-2. Manual annotation of perceptual errors  
-3. Extraction of token-level cross-attention  
-4. Alignment with human saliency (24×24 grid normalization)  
-5. Divergence computation and statistical testing  
-
-All analysis is post-hoc and does not involve model modification.
-
-## Experimental Pipeline
-
-The empirical analysis follows the pipeline below:
+## ⚙️ Pipeline
 
 ```mermaid
 graph TD
-
-A[COCO Images] --> B[Caption Generation<br>BLIP / ViT-GPT2]
-
-B --> C[Manual Error Annotation]
-
-C --> D[Cross-Attention Extraction]
-
-D --> E[Alignment with Human Saliency Maps]
-
-E --> F[Token-Level Divergence<br>JS / KL]
-
-F --> G[Statistical Testing]
-
-G --> H[Cognitive Interpretation<br>Human-like vs Non-human-like Errors]
+A[Image] --> B[Caption Generation]
+B --> C[Error Annotation]
+C --> D[Attention Extraction]
+D --> E[Saliency Alignment]
+E --> F[Divergence JS  KL]
+F --> G[Statistical Analysis]
 ```
 
 ---
 
-## Current Empirical State
+## 📊 Key Results
 
-- 38 correct captions  
-- 12 perceptual error captions  
+* **No significant difference at caption level**
+* **Token-level divergence is significant**
 
-Error types:
-- Hallucination  
-- Misidentification  
-- Attribute mismatch  
-- Relation mismatch  
+  * p ≈ 0.026
+  * Cohen’s d ≈ -0.74
 
-### Statistical Findings
+### Insight:
 
-No statistically significant difference was observed at the caption level.
+> Models can attend correctly while still generating incorrect semantics.
 
-At the token level:
+This highlights a separation between:
 
-- error_token_JS < non_error_JS  
-- p = 0.026  
-- Cohen’s d ≈ -0.74  
-
-### Interpretation
-
-Spatial attention alignment is neither necessary nor sufficient for semantic correctness.
-
-The model frequently attends to visually salient regions even when generating semantically incorrect tokens.
-
-This suggests a structural separation between:
-
-- Perceptual alignment  
-- Semantic grounding  
-
-Human-like spatial attention patterns do not imply human-like perceptual reasoning.
+* **Perceptual alignment**
+* **Semantic grounding**
 
 ---
 
-## Repository Structure
+## 📁 Repository Structure
 
-- cognitive-captioning-errors/
-
-- ├── docs/ # Conceptual and methodological framework
-- ├── data/ # Raw metadata, processed outputs, annotations
-- ├── models/ # Model configuration documentation
-- ├── analysis/ # Notebooks for divergence and statistical testing
-- ├── results/ # Tables, figures, interpretation notes
-- ├── environment/ # Reproducible environment configuration
-- └── project_management/ # Milestones, roadmap, issue templates
-
-
-### Separation Principles
-
-- `data/` → contains only datasets and derived measurements  
-- `analysis/` → contains computational notebooks  
-- `results/` → contains finalized outputs  
-- `docs/` → contains conceptual and methodological documentation  
-
-This separation ensures clarity between empirical evidence, analysis, and interpretation.
+```text
+data/        # annotations and metadata
+docs/        # research paper and methodology
+results/     # final tables, summaries, figures
+notebooks/   # analysis pipelines
+src/         # reusable code modules
+```
 
 ---
 
-## Contributors
+## 🚀 How to Run
 
-### Abhidhey Singh
-- Cognitive framing  
-- Token-level divergence analysis  
-- Statistical testing  
-- Theory integration  
+```bash
+pip install -r requirements.txt
+jupyter notebook
+```
 
-### Sneha Mishra
-- Error taxonomy construction  
-- Manual annotation  
-- Human comparison design  
-- Category refinement  
+Run notebooks in order:
 
-### Shivani Rathore
-- Cross-attention extraction  
-- Saliency preprocessing  
-- Spatial alignment implementation  
-
-Each contributor’s role is structurally separated within the repository.
+1. `01_setup_and_dataset.ipynb`
+2. `02_caption_generation.ipynb`
+3. `03_metric_computation.ipynb`
+4. `04_annotation.ipynb`
+5. `05_attention_analysis.ipynb`
+6. `06_cross_model_analysis.ipynb`
 
 ---
 
-## Reproducibility
+## 📄 Research Paper
 
-See `docs/reproducibility_protocol.md` for:
-
-1. Dataset acquisition instructions  
-2. Attention extraction procedure  
-3. Saliency normalization  
-4. Divergence computation  
-5. Statistical testing protocol  
-
-The repository includes:
-
-- `requirements.txt`  
-- `environment.yml`  
-- Fixed random seeds  
-- Explicit model version documentation  
-
-Expected core result:
-
-- p ≈ 0.026  
-- Cohen’s d ≈ -0.74  
+The full research paper is available here:
+👉 [paper.pdf](docs/paper.pdf)
 
 ---
 
-## Ethical and Licensing Notes
+## 👥 Contributors
 
-- COCO dataset used under official licensing terms  
-- SALICON dataset used under original usage conditions  
-- No redistribution of copyrighted image data  
-- Manual annotations created by contributors  
-- This project does not attempt to model or diagnose human cognitive impairments  
+**Abhidhey Singh**
 
-This study investigates structural similarities in error patterns, not human deficiency modeling.
+* Metric design (CSS)
+* Pipeline architecture
+* Statistical analysis
 
----
+**Sneha Mishra**
 
-## What This Repository Is Not
+* Error taxonomy
+* Manual annotation
+* Cognitive categorization
 
-- Not a benchmark repository  
-- Not a model improvement project  
-- Not a leaderboard submission  
-- Not an application deployment  
+**Shivani Rathore**
 
-This is a structured cognitive analysis of perceptual failure in vision–language systems.
-
----
-
-## License
-
-This repository is released under the MIT License.
-
-See `LICENSE` for details.
+* Attention extraction
+* Saliency alignment
+* Visualization
 
 ---
 
-## Citation
+---
 
-If referencing this work, please use the citation file provided in `CITATION.cff`.
+## ⚖️ Ethics & Data Usage
+
+* COCO and SALICON datasets are **not redistributed**
+* Only derived metadata and annotations are included
+* This work studies **error structure**, not human cognition modeling
 
 ---
 
-## Project Status
+## 📌 What This Is NOT
 
-Ongoing minor research project.
+* Not a benchmark repo
+* Not a model improvement project
+* Not a leaderboard submission
 
-Prepared for faculty review.
+This is a **research-focused analysis of failure behavior**.
+
+---
+
+## 📚 Citation
+
+Please use `CITATION.cff` if referencing this work.
+
+---
+
+## 📄 License
+
+MIT License

@@ -1,0 +1,18 @@
+
+\begin{table}[!t]
+\renewcommand{\arraystretch}{1.2}
+\caption{Caption-Level Attention Divergence: Correct vs.\ Incorrect Captions (BLIP)}
+\label{tab:caption_level}
+\centering
+\begin{tabular}{lccc}
+\hline
+\textbf{Metric} & \textbf{Correct} & \textbf{Incorrect} & \textbf{p-value} \\
+\hline
+Mean JS Divergence   & 0.532 & 0.545 & 0.475 (NS) \\
+Mean KL Divergence   & 10.59 & 10.55 & $\approx$0.96 (NS) \\
+Max Token JS         & 0.651 & 0.661 & NS \\
+\hline
+\end{tabular}
+\\
+\small NS: Not Significant ($p > 0.05$). Welch's $t$-test.
+\end{table}

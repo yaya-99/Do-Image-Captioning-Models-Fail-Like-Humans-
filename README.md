@@ -261,6 +261,6 @@ If referencing this work, please use the citation file provided in `CITATION.cff
 
 ## Project Status
 
-Ongoing minor research project in Cognitive Computing.
+Ongoing minor research project.
 
 Prepared for faculty review.

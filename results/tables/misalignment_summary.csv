@@ -1,0 +1,4 @@
+model,n_total,false_high,false_high_pct,false_low,false_low_pct,misalign_pct,agreement_pct
+BLIP,200,29,14.499999999999998,65,32.5,47.0,53.0
+BLIP-2,200,35,17.5,53,26.5,44.0,56.00000000000001
+ViT-GPT2,200,42,21.0,61,30.5,51.5,48.5

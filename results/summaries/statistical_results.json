@@ -1,0 +1,49 @@
+{
+  "caption_level": [
+    {
+      "metric": "Mean JS Divergence",
+      "correct_mean": 0.4294320234498635,
+      "incorrect_mean": 0.42659176797519793,
+      "p_value": 0.8783711061353707,
+      "n_correct": 135,
+      "n_incorrect": 65
+    },
+    {
+      "metric": "Mean KL Divergence",
+      "correct_mean": 7.438420506226366,
+      "incorrect_mean": 7.37401140216824,
+      "p_value": 0.8569098893698588,
+      "n_correct": 135,
+      "n_incorrect": 65
+    },
+    {
+      "metric": "Max Token JS",
+      "correct_mean": 0.44333311066986586,
+      "incorrect_mean": 0.4418091482007656,
+      "p_value": 0.9359344584432236,
+      "n_correct": 135,
+      "n_incorrect": 65
+    },
+    {
+      "metric": "Mean Cosine Sim",
+      "correct_mean": 0.33195475986837036,
+      "incorrect_mean": 0.33875330119224223,
+      "p_value": 0.7832434460980484,
+      "n_correct": 135,
+      "n_incorrect": 65
+    }
+  ],
+  "token_level": {
+    "n_error_captions": 64,
+    "mean_error_token_js": 0.41274876866744076,
+    "mean_other_tokens_js": 0.4281967400334975,
+    "paired_t_stat": -14.371614767378622,
+    "paired_p_value": 1.4817245254525181e-21,
+    "mw_p_value": 0.16623567727646538,
+    "cohens_d": -1.7964518459223278,
+    "ci_95": [
+      -0.01755476481742292,
+      -0.013341177914690507
+    ]
+  }
+}

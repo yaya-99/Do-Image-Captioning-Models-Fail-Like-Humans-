@@ -1,0 +1,4 @@
+Metric,BLEU,CSS,Δ
+Correlation,0.27,0.477,0.208
+Accuracy,0.644,0.711,0.067
+F1,0.624,0.694,0.071
